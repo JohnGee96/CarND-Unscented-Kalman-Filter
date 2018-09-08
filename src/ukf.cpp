@@ -126,10 +126,10 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package)
     * Use the sensor type to perform the update step.
     * Update the state and covariance matrices.
   */
-  if (meas_package.sensor_type_ == MeasurementPackage::RADAR) {
+  if (meas_package.sensor_type_ == MeasurementPackage::RADAR && use_radar_) {
     UpdateRadar(meas_package);
     // cout << "NIS Score: " << NIS_radar << '\n';
-  } else {
+  } else if (meas_package.sensor_type_ == MeasurementPackage::LASER && use_laser_) {
     // Lidar updates
     UpdateLidar(meas_package);
     // cout << "NIS Score: " << NIS_lidar << '\n';
