@@ -58,14 +58,27 @@ public:
   ///* Weights of sigma points
   VectorXd weights_;
 
+  ///* Radar measurement dimension
+  int n_radar;
+
+  ///* Lidar measurement dimension
+  int n_lidar;
+
   ///* State dimension
   int n_x_;
 
   ///* Augmented state dimension
   int n_aug_;
 
+  ///* Number of sigma points
+  int n_sigma;
+
   ///* Sigma point spreading parameter
   double lambda_;
+
+  ///* NIS scores
+  double NIS_lidar;
+  double NIS_radar;
 
 
   /**
